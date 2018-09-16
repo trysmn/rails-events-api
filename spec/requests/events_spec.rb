@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Events API', type: :request do
   # initialize test data
   let!(:events) { create_list(:event, 10) }
+  let(:event_id) { events.first.id }
 
   # Test suite for GET /events
   describe 'GET /events' do
@@ -73,7 +74,7 @@ RSpec.describe 'Events API', type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body).to match(/Validation failed: End time, Label and Category can't be blank/)
+        expect(response.body).to match(/Validation failed: End time can't be blank, Label can't be blank, Category can't be blank/)
       end
     end
   end
