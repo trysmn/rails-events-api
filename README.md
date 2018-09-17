@@ -31,12 +31,12 @@ To seed the database with the 10 events defined in /rails-events-api/db/seeds.rb
 Start a rails server by typing 'rails s' in your terminal. Go to your localhost with the relevant port on your browser (for me, this is localhost:3000). Then you can test the endpoints stated in the brief (/api/events/ and /api/events/:id). If you wish to create a new event, then one can do this using the gem httpie (this can be installed using 'gem install httpie'). Once you have httpie, create another tab for your terminal (in addition to the rails server running) and you can write HTTP requests on the command line.
 Some examples of this are:
 
-$ http :3000/events
+$ http :3000/api/events
 # shows all events returned by the API in JSON format.
 
-$ http POST :3000/events start_time="2001-02-03T04:05:06.123456789+07:00" end_time="2001-02-04T04:05:06.123456789+07:00" label="event_one" category="blue"
+$ http POST :3000/api/events start_time="2001-02-03T04:05:06.123456789+07:00" end_time="2001-02-04T04:05:06.123456789+07:00" label="event_one" category="blue"
 # creates a new event with defined values for parameters.
 
-$ http DELETE :3000/events/1
+$ http DELETE :3000/api/events/1
 # deletes the event with id 1 from the database.
 
