@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
   # GET /events/:id
   def show
-    json_response(@event)
+    json_response(hash_format_of_event(@event))
   end
 
   # PUT /events/:id
@@ -31,6 +31,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def hash_format_of_event(event)
+    { start_time: event.start_time.iso8601(), end_time: event.end_time.iso8601(), label: event.label, category_name: event.category.label }
+  end
 
   def event_params
     # whitelist params
